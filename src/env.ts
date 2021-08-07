@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { cleanEnv, num, str } from "envalid";
+import { cleanEnv, num, str, bool } from "envalid";
 
 config();
 
@@ -10,4 +10,7 @@ export default cleanEnv(process.env, {
     API_HASH: str(),
     LOCALE: str({ default: "en" }),
     MAX_PLAYLIST_SIZE: num({ default: 10 }),
+    CACHE: bool({ default: true }),
+    CACHE_DIR: str({ default: "cache" }),
+    CACHE_DUR: num({ default: 600 }),
 });
